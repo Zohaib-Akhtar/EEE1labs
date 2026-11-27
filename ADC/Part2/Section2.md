@@ -42,14 +42,14 @@ The name “noise gain” describes how a small voltage disturbance at the non-i
 
 <p align="center"><img src="graphics/opamp-highgain.png" alt="Single-supply high-gain inverting amplifier with input coupling capacitor and 2.5 V reference" width="800"></p>
 
-Use **1.5 kΩ input resistance, 68 kΩ feedback resistance and a 1 µF input coupling capacitor**. Connect the non-inverting input to Vref. The predicted midband signal gain is approximately **−45.3**, the noise gain is **46.3**, and the upper bandwidth is approximately **8.6 kHz**.
+Use **4.3 kΩ input resistance, 68 kΩ feedback resistance and a 1 µF input coupling capacitor**. Set the input signal to **30 mV peak**. Connect the non-inverting input to Vref. The predicted midband signal gain is approximately **−15.8**, giving an output signal of approximately **474 mV peak** about Vref. The noise gain is **16.8**, and the upper bandwidth is approximately **23.8 kHz**, assuming a 400 kHz gain–bandwidth product.
 
-The input coupling capacitor also causes a low-frequency high-pass transition near 106 Hz, ignoring AWG source resistance. This is separate from the op-amp's upper bandwidth limit. Use the approximately flat region between the two transitions to estimate midband gain.
+The input coupling capacitor also causes a low-frequency high-pass transition near **37 Hz**, ignoring AWG source resistance. This is separate from the op-amp’s upper bandwidth limit. Use the approximately flat region between the two transitions to estimate midband gain.
 
 ### Build and measure
 
 1. Build the circuit with the power off, using the reference above. Power on and verify that the output settles near 2.5 V.
-2. Set the AWG to a **1 kHz sine wave, 10 mV peak (20 mV peak-to-peak), 0 V DC offset**. The input capacitor isolates the source's DC level from the internal bias.
+2. Set the AWG to a **1 kHz sine wave, 30 mV peak (60 mV peak-to-peak), 0 V DC offset**. The input capacitor isolates the source's DC level from the internal bias.
 3. Connect CH1 to the input before the coupling capacitor and CH2 to the output. Verify a clean, inverted sine wave. Reduce the input amplitude if necessary to avoid clipping or distortion.
 4. Sweep the frequencies in the table. Measure the actual input amplitude at every frequency; do not rely solely on the AWG setting. Keep the input small enough for the amplifier to remain linear.
 5. Calculate $|T|=V_\mathrm{out,pp}/V_\mathrm{in,pp}$ and $G_\mathrm{dB}=20\log_{10}|T|$. Plot gain and phase against logarithmic frequency.
